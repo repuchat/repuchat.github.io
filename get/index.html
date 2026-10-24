@@ -1,0 +1,48 @@
+<!doctype html>
+<!-- Where to get REPотека: the app's "a new version" banner opens this page
+     (UPDATE_LINK in app_settings). -->
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Скачать REPотеку</title>
+  <meta name="description" content="Где скачать REPотеку: Telegram, скоро RuStore и Google Play.">
+  <meta property="og:title" content="Скачать REPотеку">
+  <meta property="og:description" content="+REP и −REP среди своих">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; background: #050807; color: #F4F5F7;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { width: 100%; max-width: 452px; padding: 32px 16px; text-align: center; }
+    .logo { width: 220px; max-width: 70%; }
+    h1 { font-size: 28px; margin: 24px 0 8px; }
+    p { color: rgba(244, 245, 247, .65); line-height: 1.5; margin: 8px 0; }
+    .store {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      margin: 12px 0; padding: 16px 22px; border-radius: 999px;
+      border: 1px solid rgba(244, 245, 247, .25); color: inherit;
+      font-weight: 700; font-size: 18px; text-decoration: none;
+    }
+    .store.main { margin-top: 28px; background: #F1F3EC; border-color: #F1F3EC; color: #0A0F0B; }
+    .store small { font-weight: 400; font-size: 14px; opacity: .7; }
+    .store.soon { opacity: .45; }
+    .note { margin-top: 20px; font-size: 14px; }
+    a.back { color: rgba(244, 245, 247, .65); }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="../logo.svg" alt="REPотека">
+    <h1>Скачать REPотеку</h1>
+    <p>Для Android. Новая версия ставится поверх старой, группы и REPутация остаются.</p>
+    <a class="store main" href="https://t.me/repuchat">Telegram <small>свежие версии</small></a>
+    <div class="store soon">RuStore <small>скоро</small></div>
+    <div class="store soon">Google Play <small>скоро</small></div>
+    <p class="note"><a class="back" href="../">Что это за приложение</a></p>
+  </main>
+</body>
+</html>
