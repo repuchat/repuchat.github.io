@@ -1,11 +1,11 @@
 <!doctype html>
 <!-- Where to get REPотека: the app's "a new version" banner opens this page
-     (UPDATE_LINK in app_settings). -->
+     (UPDATE_LINK in app_settings). In Russian or English by the phone's language. -->
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Скачать REPотеку</title>
+  <title data-en="Get REPuchat">Скачать REPотеку</title>
   <meta name="description" content="Где скачать REPотеку: Telegram, скоро RuStore и Google Play.">
   <meta property="og:title" content="Скачать REPотеку">
   <meta property="og:description" content="+REP и −REP среди своих">
@@ -36,13 +36,25 @@
 </head>
 <body>
   <main>
-    <img class="logo" src="../logo.svg" alt="REPотека">
-    <h1>Скачать REPотеку</h1>
-    <p>Для Android. Новая версия ставится поверх старой, группы и REPутация остаются.</p>
-    <a class="store main" href="https://t.me/repuchat">Telegram <small>свежие версии</small></a>
-    <div class="store soon">RuStore <small>скоро</small></div>
-    <div class="store soon">Google Play <small>скоро</small></div>
-    <p class="note"><a class="back" href="../">Что это за приложение</a></p>
+    <img class="logo" src="../logo.svg" data-en-src="../logo_en.svg" alt="REPотека">
+    <h1 data-en="Get REPuchat">Скачать REPотеку</h1>
+    <p data-en="For Android. A new version installs over the old one; groups and REPutation stay.">Для Android. Новая версия ставится поверх старой, группы и REPутация остаются.</p>
+    <a class="store main" href="https://t.me/repuchat" data-en="Telegram <small>latest versions</small>">Telegram <small>свежие версии</small></a>
+    <div class="store soon" data-en="RuStore <small>soon</small>">RuStore <small>скоро</small></div>
+    <div class="store soon" data-en="Google Play <small>soon</small>">Google Play <small>скоро</small></div>
+    <p class="note"><a class="back" href="../" data-en="What the app is">Что это за приложение</a></p>
   </main>
+  <script>
+    // Not Russian, the page speaks English: [data-en] takes its English text, the
+    // logo its English picture.
+    if (!(navigator.language || 'ru').toLowerCase().startsWith('ru')) {
+      document.documentElement.lang = 'en';
+      for (const el of document.querySelectorAll('[data-en]')) el.innerHTML = el.dataset.en;
+      for (const el of document.querySelectorAll('img[data-en-src]')) {
+        el.src = el.dataset.enSrc;
+        el.alt = 'REPuchat';
+      }
+    }
+  </script>
 </body>
 </html>
