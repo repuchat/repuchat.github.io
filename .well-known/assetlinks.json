@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.awi.repuchat",
+      "sha256_cert_fingerprints": [
+        "17:EF:49:76:68:71:67:18:C4:42:D3:DB:FF:ED:F8:35:8E:63:A4:5E:97:49:8F:E8:6B:6E:15:0B:DB:76:CC:BC",
+        "29:6B:0C:64:0E:2D:47:66:BD:FF:7F:C6:56:20:E3:20:82:1E:D1:EC:A6:F6:DA:2A:3F:47:83:2A:65:67:1D:6B"
+      ]
+    }
+  }
+]

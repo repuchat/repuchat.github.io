@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- REPотека's site: what the app is and what it costs. Invites live in join/. -->
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REPотека — +REP и −REP среди своих</title>
+  <meta name="description" content="Приложение для компаний друзей: дайте друг другу +REP и −REP с причиной, оспаривайте, смотрите итоги.">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: #050807; color: #F4F5F7; line-height: 1.55;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 48px 16px 64px; }
+    .logo { width: 240px; max-width: 70%; }
+    h1 { font-size: 30px; margin: 28px 0 8px; }
+    h2 { font-size: 22px; margin: 40px 0 12px; }
+    p, li { color: rgba(244, 245, 247, .75); }
+    ul { padding-left: 20px; }
+    .prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+    .price {
+      border: 1px solid rgba(244, 245, 247, .15); border-radius: 18px; padding: 18px;
+      background: rgba(244, 245, 247, .04);
+    }
+    .price b { display: block; font-size: 24px; color: #FFB600; }
+    footer { margin-top: 48px; font-size: 14px; color: rgba(244, 245, 247, .45); }
+    a { color: #F1F3EC; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="logo.svg" alt="REPотека">
+    <h1>+REP и −REP среди своих</h1>
+    <p>REPотека — приложение для компаний друзей, семьи, соседей. Каждый день у каждого есть немного REPочков: раздай их другим как +REP или −REP и напиши, за что. Несогласен — оспорь, группа проголосует. В итогах видно, кто чем запомнился за неделю, месяц, год.</p>
+    <ul>
+      <li>Группы по приглашению: ссылкой или QR-кодом.</li>
+      <li>Причины, места, фото, реакции.</li>
+      <li>Оспаривания с голосованием.</li>
+      <li>Итоги и карточки, которыми можно поделиться.</li>
+    </ul>
+
+    <h2>Цены</h2>
+    <p>Приложение бесплатное. Подписка Pro даёт больше:</p>
+    <div class="prices">
+      <div class="price"><b>99 ₽ в месяц</b>Подписка Pro</div>
+      <div class="price"><b>999 ₽ в год</b>Подписка Pro, выгоднее на 16 %</div>
+    </div>
+    <ul>
+      <li>До 5 своих групп вместо 1.</li>
+      <li>До 30 человек в группе вместо 10.</li>
+      <li>25 мест в группе вместо 5.</li>
+      <li>Фото к REPортам хранятся всегда, а не неделю.</li>
+      <li>Все 17 реакций вместо 8.</li>
+      <li>Своё имя в каждой группе; хост переименовывает участников.</li>
+    </ul>
+    <p>Подписка продлевается сама; отменить её можно в любой момент.</p>
+
+    <h2>Где скачать</h2>
+    <p>Скоро в RuStore.</p>
+
+    <footer>REPотека · repuchat.github.io</footer>
+  </main>
+</body>
+</html>

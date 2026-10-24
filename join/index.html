@@ -1,0 +1,70 @@
+<!doctype html>
+<!-- An invite into a REPотека group: https://<site>/join#<token>. On a phone with
+     the app, Android opens the app straight away (an App Link, see
+     .well-known/assetlinks.json); otherwise this page opens it with a tap. The
+     token after # never leaves the phone: browsers don't send it to the site. -->
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Приглашение в REPотеку</title>
+  <meta property="og:title" content="Приглашение в группу REPотеки">
+  <meta property="og:description" content="+REP и −REP среди своих">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; background: #050807; color: #F4F5F7;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { width: 100%; max-width: 452px; padding: 0 16px; text-align: center; }
+    .logo { width: 220px; max-width: 70%; }
+    h1 { font-size: 28px; margin: 24px 0 8px; }
+    p { color: rgba(244, 245, 247, .65); line-height: 1.5; margin: 8px 0; }
+    .open {
+      display: block; margin: 28px 0 12px; padding: 18px; border-radius: 999px;
+      background: #F1F3EC; color: #0A0F0B; font-weight: 700; font-size: 18px;
+      text-decoration: none;
+    }
+    .copy {
+      display: block; width: 100%; padding: 14px; border-radius: 999px;
+      border: 1px solid rgba(244, 245, 247, .25); background: none; color: inherit;
+      font: inherit; cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="../logo.svg" alt="REPотека">
+    <h1>Тебя зовут в группу</h1>
+    <p>Друзья дают друг другу +REP и −REP с причинами. Открой приглашение в приложении.</p>
+    <a class="open" id="open" href="#">Открыть в REPотеке</a>
+    <button class="copy" id="copy" type="button">Скопировать приглашение</button>
+    <p id="hint">Нет приложения? Попроси у того, кто тебя позвал. Или открой REPотеку → Вступить и вставь приглашение.</p>
+  </main>
+  <script>
+    const token = location.hash.slice(1);
+    const inApp = 'repuchat://join/' + token;
+    // Chrome on Android opens an app by an intent link; elsewhere the app's own one.
+    const android = /Android/i.test(navigator.userAgent);
+    document.getElementById('open').href = android
+      ? 'intent://join/' + token + '#Intent;scheme=repuchat;package=com.awi.repuchat;end'
+      : inApp;
+    document.getElementById('copy').onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(location.href);
+        document.getElementById('copy').textContent = 'Скопировано';
+      } catch (_) {
+        prompt('Скопируй приглашение:', location.href);
+      }
+    };
+    if (!/^[A-Za-z0-9_-]{43}$/.test(token)) {
+      document.querySelector('h1').textContent = 'Приглашение не найдено';
+      document.getElementById('open').style.display = 'none';
+      document.getElementById('copy').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
