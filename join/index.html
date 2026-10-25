@@ -61,12 +61,14 @@
       }
     }
     const token = location.hash.slice(1);
-    const inApp = 'repuchat://join/' + token;
     // Chrome on Android opens an app by an intent link; elsewhere the app's own one.
     const android = /Android/i.test(navigator.userAgent);
-    document.getElementById('open').href = android
+    // Without the Android app (an iPhone, a computer): the web app takes it.
+    const open = document.getElementById('open');
+    open.href = android
       ? 'intent://join/' + token + '#Intent;scheme=repuchat;package=com.awi.repuchat;end'
-      : inApp;
+      : '../app/#/?join=' + token;
+    if (!android) open.textContent = en ? 'Open in the browser' : 'Открыть в браузере';
     document.getElementById('copy').onclick = async () => {
       try {
         await navigator.clipboard.writeText(location.href);
