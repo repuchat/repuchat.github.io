@@ -31,6 +31,15 @@
     }
     p a { color: #F1F3EC; }
     .small { font-size: 14px; }
+    .noapp {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin: 20px 0 8px; font-size: 17px; color: rgba(244, 245, 247, .75);
+    }
+    .get {
+      padding: 10px 22px; border-radius: 999px; background: #BCFF04; color: #0A0F0B;
+      font-weight: 700; text-decoration: none; text-transform: uppercase;
+      letter-spacing: .04em; box-shadow: 0 0 24px rgba(188, 255, 4, .25);
+    }
     .copy {
       display: block; width: 100%; padding: 14px; border-radius: 999px;
       border: 1px solid rgba(244, 245, 247, .25); background: none; color: inherit;
@@ -45,7 +54,10 @@
     <p data-en="Friends give each other +REP and −REP with reasons. Open the invite in the app.">Друзья дают друг другу +REP и −REP с причинами. Открой приглашение в приложении.</p>
     <a class="open" id="open" href="#" data-en="Open in REPuchat">Открыть в REPотеке</a>
     <button class="copy" id="copy" type="button" data-en="Copy the invite">Скопировать приглашение</button>
-    <p data-en="No app? Get it: <a href='https://t.me/repuchat'>Telegram</a> · RuStore and Google Play soon">Нет приложения? Скачай: <a href="https://t.me/repuchat">Telegram</a> · RuStore и Google Play — скоро</p>
+    <div class="noapp">
+      <span data-en="No app?">Нет приложения?</span>
+      <a class="get" href="../get/" data-en="Get it">Скачать</a>
+    </div>
     <p class="small" data-en="Have the app, but it didn't open? Open REPuchat → Join and paste the invite.">Приложение есть, но не открылось? Открой REPотеку → Вступить и вставь приглашение.</p>
   </main>
   <script>
