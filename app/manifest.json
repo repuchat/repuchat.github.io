@@ -1,6 +1,6 @@
 {
-    "name": "REPотека",
-    "short_name": "REPотека",
+    "name": "REPuchat",
+    "short_name": "REPuchat",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#000000",
