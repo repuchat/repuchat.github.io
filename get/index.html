@@ -1,15 +1,13 @@
 <!doctype html>
-<!-- Where to get REPuchat: the app's "a new version" banner opens this page
-     (UPDATE_LINK in app_settings). In Russian or English by the phone's language. -->
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title data-en="Get REPuchat">Скачать REPотеку</title>
-  <meta name="description" content="Где скачать REPuchat: Telegram, скоро RuStore и Google Play.">
-  <meta property="og:title" content="Скачать REPотеку">
-  <meta property="og:description" content="+REP и −REP среди своих">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title data-ru="Скачать REPотеку">Get REPuchat</title>
+<meta content="Where to get REPuchat: Telegram, RuStore and Google Play coming soon." name="description"/>
+<meta content="Get REPuchat" property="og:title"/>
+<meta content="+REP and −REP among friends" property="og:description"/>
+<style>
     :root { color-scheme: dark; }
     * { box-sizing: border-box; }
     body {
@@ -41,27 +39,33 @@
   </style>
 </head>
 <body>
-  <main>
-    <img class="logo" src="../logo.svg" data-ru-src="../logo.ru.svg" alt="REPuchat">
-    <h1 data-en="Get REPuchat">Скачать REPотеку</h1>
-    <p data-en="A new version installs over the old one; groups and REPutation stay.">Новая версия ставится поверх старой, группы и REPутация остаются.</p>
-    <h2 data-en="Android">Android</h2>
-    <a class="store main" href="https://github.com/repuchat/repuchat.github.io/releases/latest/download/repuchat-arm64.apk" data-en="Download here <small>APK, latest</small>">Скачать здесь <small>APK, последняя</small></a>
-    <a class="store" href="https://t.me/repuchat" data-en="Telegram <small>news and versions</small>">Telegram <small>новости и версии</small></a>
-    <div class="store soon" data-en="RuStore <small>soon</small>">RuStore <small>скоро</small></div>
-    <div class="store soon" data-en="Google Play <small>soon</small>">Google Play <small>скоро</small></div>
-    <h2 data-en="iPhone and computer">iPhone и компьютер</h2>
-    <a class="store" href="../app/" data-en="Web version <small>in the browser</small>">Веб-версия <small>в браузере</small></a>
-    <p class="note" data-en="On an iPhone add it to the Home Screen (Share → Add to Home Screen): notifications come only from there.">На iPhone добавь её на экран «Домой» («Поделиться» → «На экран „Домой“»): уведомления приходят только оттуда.</p>
-    <p class="note"><a class="back" href="../" data-en="What the app is">Что это за приложение</a></p>
-  </main>
-  <script>
-    // English logo is the crawlable/default asset; Russian users get the localized logo.
-    if ((navigator.language || 'ru').toLowerCase().startsWith('ru')) {
+<main>
+<img alt="REPuchat" class="logo" data-ru-src="../logo.ru.svg" src="../logo.svg"/>
+<h1 data-ru="Скачать REPотеку">Get REPuchat</h1>
+<p data-ru="Новая версия ставится поверх старой, группы и REPутация остаются.">A new version installs over the old one; groups and REPutation stay.</p>
+<h2 data-ru="Android">Android</h2>
+<a class="store main" data-ru="Скачать здесь &lt;small&gt;APK, последняя&lt;/small&gt;" href="https://github.com/repuchat/repuchat.github.io/releases/latest/download/repuchat-arm64.apk">Download here <small>APK, latest</small></a>
+<a class="store" data-ru="Telegram &lt;small&gt;новости и версии&lt;/small&gt;" href="https://t.me/repuchat">Telegram <small>news and versions</small></a>
+<div class="store soon" data-ru="RuStore &lt;small&gt;скоро&lt;/small&gt;">RuStore <small>soon</small></div>
+<div class="store soon" data-ru="Google Play &lt;small&gt;скоро&lt;/small&gt;">Google Play <small>soon</small></div>
+<h2 data-ru="iPhone и компьютер">iPhone and computer</h2>
+<a class="store" data-ru="Веб-версия &lt;small&gt;в браузере&lt;/small&gt;" href="../app/">Web version <small>in the browser</small></a>
+<p class="note" data-ru="На iPhone добавь её на экран «Домой» («Поделиться» → «На экран „Домой“»): уведомления приходят только оттуда.">On an iPhone add it to the Home Screen (Share → Add to Home Screen): notifications come only from there.</p>
+<p class="note"><a class="back" data-ru="Что это за приложение" href="../">What the app is</a></p>
+</main>
+
+    const isRussian = (navigator.language || 'en').toLowerCase().startsWith('ru');
+    if (isRussian) {
+      document.documentElement.lang = 'ru';
+      for (const el of document.querySelectorAll('[data-ru]')) el.innerHTML = el.dataset.ru;
       for (const el of document.querySelectorAll('img[data-ru-src]')) {
         el.src = el.dataset.ruSrc;
         el.alt = 'REPотека';
       }
+    }
+<script>
+    // English logo is the crawlable/default asset; Russian users get the localized logo.
+    if ((navigator.language || 'ru').toLowerCase().startsWith('ru')) {
     }
     // Not Russian, the page speaks English: [data-en] takes its English text, the
     // logo its English picture.

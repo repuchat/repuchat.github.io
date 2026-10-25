@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ru"><head>
+<!DOCTYPE html><html lang="en"><head>
   <!--
     If you are serving your web app in a path other than the root, change the
     href value below to reflect the base path you are serving from.
@@ -16,26 +16,27 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="REPuchat — приложение для групп друзей, семьи, соседей и команд">
+  <meta name="description" content="REPuchat — an app for friends, family, neighbours and teams.">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="REPотека">
+  <meta name="apple-mobile-web-app-title" content="REPuchat">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
 
-  <title>REPотека</title>
-  <link rel="manifest" href="manifest.json" id="manifest">
+  <title>REPuchat — +REP and −REP among friends</title>
+  <link rel="manifest" href="manifest_en.json" id="manifest">
   <script>
-    // Not Russian: the English name (REPuchat), on the tab and on the home screen.
-    if (!(navigator.language || 'ru').toLowerCase().startsWith('ru')) {
-      document.documentElement.lang = 'en';
-      document.title = 'REPuchat';
-      document.querySelector('meta[name=apple-mobile-web-app-title]').content = 'REPuchat';
-      document.getElementById('manifest').href = 'manifest_en.json';
+    // English is the default; Russian users get the localized app shell.
+    if ((navigator.language || 'en').toLowerCase().startsWith('ru')) {
+      document.documentElement.lang = 'ru';
+      document.title = 'REPотека';
+      document.querySelector('meta[name=apple-mobile-web-app-title]').content = 'REPотека';
+      document.querySelector('meta[name=description]').content = 'REPотека — приложение для групп друзей, семьи, соседей и команд.';
+      document.getElementById('manifest').href = 'manifest.json';
     }
   </script>
   <style id="splash-screen-style">
