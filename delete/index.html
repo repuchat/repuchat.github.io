@@ -1,0 +1,60 @@
+<!doctype html>
+<!-- How to delete a REPотека account: in the app, or by mail. Google Play asks for
+     such a page. In Russian or English by the phone's language. -->
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-en="Deleting a REPuchat account">Удаление аккаунта REPотеки</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: #050807; color: #F4F5F7; line-height: 1.6;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
+    h1 { font-size: 26px; margin: 0 0 16px; }
+    h2 { font-size: 19px; margin: 32px 0 8px; }
+    p, li { color: rgba(244, 245, 247, .78); }
+    ul, ol { padding-left: 22px; }
+    a { color: #F1F3EC; }
+    footer { margin-top: 40px; font-size: 14px; color: rgba(244, 245, 247, .45); }
+  </style>
+</head>
+<body>
+  <main>
+    <h1 data-en="Deleting your account">Удаление аккаунта</h1>
+
+    <h2 data-en="In the app">В приложении</h2>
+    <ol>
+      <li data-en="Open REPuchat and sign in.">Открой REPотеку и войди.</li>
+      <li data-en="Profile → Delete the account → Delete for good.">Профиль → «Удалить аккаунт» → «Удалить навсегда».</li>
+    </ol>
+
+    <h2 data-en="By mail">По почте</h2>
+    <p data-en="Can't open the app? Write to <a href='mailto:repuchatapp@gmail.com'>repuchatapp@gmail.com</a> from the mail you sign in with, asking to delete the account. We do it within 10 working days.">Не получается открыть приложение? Напиши на <a href="mailto:repuchatapp@gmail.com">repuchatapp@gmail.com</a> с почты, через которую входишь, что хочешь удалить аккаунт. Мы удалим его в течение 10 рабочих дней.</p>
+
+    <h2 data-en="What is deleted">Что удаляется</h2>
+    <ul>
+      <li data-en="Your profile: name, photo, color in groups.">Профиль: имя, фото, цвета в группах.</li>
+      <li data-en="Your place in every group. A group you host passes to the member with the highest REPutation; a group left empty is deleted with all in it.">Участие во всех группах. Группа, где ты хост, переходит участнику с наибольшей REPутацией; группа, где никого не осталось, удаляется со всем содержимым.</li>
+      <li data-en="Your subscription, your phones' notification tokens, your requests to join.">Подписка, токены уведомлений твоих телефонов, заявки на вступление.</li>
+    </ul>
+
+    <h2 data-en="What stays">Что остаётся</h2>
+    <ul>
+      <li data-en="Your REPorts and comments stay in their groups, without your name: the group's REPutation stays as it was. Photos and voices go as usual (photos a week after sending, voices after a day).">Твои REPорты и комментарии остаются в группах, но без твоего имени: REPутация группы не меняется. Фото и голосовые исчезают как обычно — фото через неделю после отправки, голосовые через сутки.</li>
+      <li data-en="Payment records the law requires (receipts) are kept by ЮKassa and the tax service.">Записи об оплатах, которые требует закон (чеки), хранят ЮKassa и налоговая.</li>
+    </ul>
+
+    <footer><a href="../">REPотека</a> · <a href="../privacy/" data-en="Privacy policy">Политика конфиденциальности</a></footer>
+  </main>
+  <script>
+    if (!(navigator.language || 'ru').toLowerCase().startsWith('ru')) {
+      document.documentElement.lang = 'en';
+      for (const el of document.querySelectorAll('[data-en]')) el.innerHTML = el.dataset.en;
+    }
+  </script>
+</body>
+</html>
