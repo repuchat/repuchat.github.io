@@ -77,7 +77,8 @@
         prompt(en ? 'Copy the invite:' : 'Скопируй приглашение:', location.href);
       }
     };
-    if (!/^[A-Za-z0-9_-]{43}$/.test(token)) {
+    // The token, and an encrypted group's key after a dot.
+    if (!/^[A-Za-z0-9_-]{43}(\.[A-Za-z0-9_-]{43})?$/.test(token)) {
       document.querySelector('h1').textContent = en ? 'Invite not found' : 'Приглашение не найдено';
       document.getElementById('open').style.display = 'none';
       document.getElementById('copy').style.display = 'none';
