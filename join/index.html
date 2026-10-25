@@ -49,7 +49,7 @@
 </head>
 <body>
   <main>
-    <img class="logo" src="../logo.svg" data-en-src="../logo_en.svg" alt="REPотека">
+    <img class="logo" src="../logo.svg" data-ru-src="../logo.ru.svg" alt="REPuchat">
     <h1 data-en="You're invited to a group">Тебя зовут в группу</h1>
     <p data-en="Friends give each other +REP and −REP with reasons. Open the invite in the app.">Друзья дают друг другу +REP и −REP с причинами. Открой приглашение в приложении.</p>
     <a class="open" id="open" href="#" data-en="Open in REPuchat">Открыть в REPотеке</a>
@@ -61,16 +61,19 @@
     <p class="small" data-en="Have the app, but it didn't open? Open REPuchat → Join and paste the invite.">Приложение есть, но не открылось? Открой REPотеку → Вступить и вставь приглашение.</p>
   </main>
   <script>
+    // English logo is the crawlable/default asset; Russian users get the localized logo.
+    if ((navigator.language || 'ru').toLowerCase().startsWith('ru')) {
+      for (const el of document.querySelectorAll('img[data-ru-src]')) {
+        el.src = el.dataset.ruSrc;
+        el.alt = 'REPотека';
+      }
+    }
     // Not Russian, the page speaks English: [data-en] takes its English text, the
     // logo its English picture.
     const en = !(navigator.language || 'ru').toLowerCase().startsWith('ru');
     if (en) {
       document.documentElement.lang = 'en';
       for (const el of document.querySelectorAll('[data-en]')) el.innerHTML = el.dataset.en;
-      for (const el of document.querySelectorAll('img[data-en-src]')) {
-        el.src = el.dataset.enSrc;
-        el.alt = 'REPuchat';
-      }
     }
     const token = location.hash.slice(1);
     // Chrome on Android opens an app by an intent link; elsewhere the app's own one.

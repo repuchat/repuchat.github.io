@@ -68,7 +68,7 @@
 </head>
 <body>
   <main>
-    <img class="logo" src="logo.svg" data-en-src="logo_en.svg" alt="REPотека (REPuchat)">
+    <img class="logo" src="logo.svg" data-ru-src="logo.ru.svg" alt="REPuchat">
     <h1 data-en="+REP and −REP among friends">REPотека — +REP и −REP среди своих</h1>
     <p data-en="REPuchat is an app for groups of friends, family, neighbours. Every day everyone has a few REPoints: give them to others as +REP or −REP and say what for. Disagree? Dispute it, and the group votes. The digest shows who stood out over the week, month, year.">REPотека — приложение для компаний друзей, семьи, соседей и команд. Каждый день у каждого есть немного REPочков: раздай их другим как +REP или −REP и напиши, за что. Несогласен — оспорь, группа проголосует. В итогах видно, кто чем запомнился за неделю, месяц, год.</p>
     <div class="cta">
@@ -115,14 +115,17 @@
     <footer data-en="REPuchat · <a href='oferta/'>Offer (in Russian)</a> · <a href='privacy/'>Privacy policy (in Russian)</a>">REPотека · <a href="oferta/">Оферта</a> · <a href="privacy/">Политика конфиденциальности</a></footer>
   </main>
   <script>
+    // English logo is the crawlable/default asset; Russian users get the localized logo.
+    if ((navigator.language || 'ru').toLowerCase().startsWith('ru')) {
+      for (const el of document.querySelectorAll('img[data-ru-src]')) {
+        el.src = el.dataset.ruSrc;
+        el.alt = 'REPотека';
+      }
+    }
     // The product brand is REPuchat in both languages.
     if (!(navigator.language || 'ru').toLowerCase().startsWith('ru')) {
       document.documentElement.lang = 'en';
       for (const el of document.querySelectorAll('[data-en]')) el.innerHTML = el.dataset.en;
-      for (const el of document.querySelectorAll('img[data-en-src]')) {
-        el.src = el.dataset.enSrc;
-        el.alt = 'REPuchat';
-      }
     }
   </script>
 </body>

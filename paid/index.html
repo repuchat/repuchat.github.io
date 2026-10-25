@@ -28,19 +28,22 @@
 </head>
 <body>
   <main>
-    <img class="logo" src="../logo.svg" data-en-src="../logo_en.svg" alt="REPотека">
+    <img class="logo" src="../logo.svg" data-ru-src="../logo.ru.svg" alt="REPuchat">
     <h1 data-en="Thank you!">Спасибо!</h1>
     <p data-en="Once ЮKassa confirms the payment, everything turns on by itself, usually within a minute.">Как только ЮKassa подтвердит оплату, всё включится само — обычно за минуту.</p>
     <a class="open" id="open" href="../app/" data-en="Back to the app">Вернуться в приложение</a>
   </main>
   <script>
+    // English logo is the crawlable/default asset; Russian users get the localized logo.
+    if ((navigator.language || 'ru').toLowerCase().startsWith('ru')) {
+      for (const el of document.querySelectorAll('img[data-ru-src]')) {
+        el.src = el.dataset.ruSrc;
+        el.alt = 'REPотека';
+      }
+    }
     if (!(navigator.language || 'ru').toLowerCase().startsWith('ru')) {
       document.documentElement.lang = 'en';
       for (const el of document.querySelectorAll('[data-en]')) el.innerHTML = el.dataset.en;
-      for (const el of document.querySelectorAll('img[data-en-src]')) {
-        el.src = el.dataset.enSrc;
-        el.alt = 'REPuchat';
-      }
     }
     // On Android the app itself; elsewhere the web app.
     if (/Android/i.test(navigator.userAgent)) {
