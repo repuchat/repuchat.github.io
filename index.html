@@ -26,6 +26,19 @@
       background: rgba(244, 245, 247, .04);
     }
     .price b { display: block; font-size: 24px; color: #FFB600; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 8px; }
+    .cta a {
+      flex: 1 1 220px; display: flex; flex-direction: column; align-items: center;
+      padding: 16px 22px; border-radius: 999px; text-decoration: none;
+      font-weight: 700; font-size: 18px; border: 1px solid rgba(244, 245, 247, .25);
+      color: #F4F5F7; transition: transform .15s ease;
+    }
+    .cta a:active { transform: scale(.97); }
+    .cta a.main {
+      background: #F1F3EC; border-color: #F1F3EC; color: #0A0F0B;
+      box-shadow: 0 0 32px rgba(241, 243, 236, .25);
+    }
+    .cta small { font-weight: 400; font-size: 13px; opacity: .65; }
     footer { margin-top: 48px; font-size: 14px; color: rgba(244, 245, 247, .45); }
     a { color: #F1F3EC; }
   </style>
@@ -35,6 +48,10 @@
     <img class="logo" src="logo.svg" data-en-src="logo_en.svg" alt="REPотека">
     <h1 data-en="+REP and −REP among friends">+REP и −REP среди своих</h1>
     <p data-en="REPuchat is an app for groups of friends, family, neighbours. Every day everyone has a few REPoints: give them to others as +REP or −REP and say what for. Disagree? Dispute it, and the group votes. The digest shows who stood out over the week, month, year.">REPотека — приложение для компаний друзей, семьи, соседей. Каждый день у каждого есть немного REPочков: раздай их другим как +REP или −REP и напиши, за что. Несогласен — оспорь, группа проголосует. В итогах видно, кто чем запомнился за неделю, месяц, год.</p>
+    <div class="cta">
+      <a class="main" href="get/" data-en="Download <small>Android</small>">Скачать <small>Android</small></a>
+      <a href="app/" data-en="Web version <small>iPhone and computer</small>">Веб-версия <small>iPhone и компьютер</small></a>
+    </div>
     <ul>
       <li data-en="Groups by invite: a link or a QR code.">Группы по приглашению: ссылкой или QR-кодом.</li>
       <li data-en="Reasons, places, photos, reactions, comments.">Причины, места, фото, реакции, комментарии.</li>
@@ -67,7 +84,7 @@
     </div>
 
     <h2 data-en="Where to get it">Где скачать</h2>
-    <p data-en="<a href='get/'>Get REPuchat</a>: the latest versions in Telegram, soon in RuStore and Google Play."><a href="get/">Скачать REPотеку</a> — свежие версии в Telegram, скоро в RuStore и Google Play.</p>
+    <p data-en="<a href='get/'>Get REPuchat</a> for Android: the latest versions in Telegram, soon in RuStore and Google Play. On an iPhone or a computer, the <a href='app/'>web version</a>."><a href="get/">Скачать REPотеку</a> для Android — свежие версии в Telegram, скоро в RuStore и Google Play. На iPhone и компьютере — <a href="app/">веб-версия</a>.</p>
 
     <h2 data-en="Contacts">Контакты</h2>
     <p data-en="Mail: <a href='mailto:reputapp@gmail.com'>reputapp@gmail.com</a>">Почта: <a href="mailto:reputapp@gmail.com">reputapp@gmail.com</a></p>

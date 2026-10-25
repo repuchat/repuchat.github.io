@@ -27,7 +27,13 @@
       border: 1px solid rgba(244, 245, 247, .25); color: inherit;
       font-weight: 700; font-size: 18px; text-decoration: none;
     }
-    .store.main { margin-top: 28px; background: #F1F3EC; border-color: #F1F3EC; color: #0A0F0B; }
+    .store.main {
+      margin-top: 28px; background: #F1F3EC; border-color: #F1F3EC; color: #0A0F0B;
+      box-shadow: 0 0 32px rgba(241, 243, 236, .25);
+    }
+    .store { transition: transform .15s ease; }
+    a.store:active { transform: scale(.97); }
+    h2 { font-size: 16px; margin: 28px 0 0; color: rgba(244, 245, 247, .55); font-weight: 600; }
     .store small { font-weight: 400; font-size: 14px; opacity: .7; }
     .store.soon { opacity: .45; }
     .note { margin-top: 20px; font-size: 14px; }
@@ -38,10 +44,14 @@
   <main>
     <img class="logo" src="../logo.svg" data-en-src="../logo_en.svg" alt="REPотека">
     <h1 data-en="Get REPuchat">Скачать REPотеку</h1>
-    <p data-en="For Android. A new version installs over the old one; groups and REPutation stay.">Для Android. Новая версия ставится поверх старой, группы и REPутация остаются.</p>
+    <p data-en="A new version installs over the old one; groups and REPutation stay.">Новая версия ставится поверх старой, группы и REPутация остаются.</p>
+    <h2 data-en="Android">Android</h2>
     <a class="store main" href="https://t.me/repuchat" data-en="Telegram <small>latest versions</small>">Telegram <small>свежие версии</small></a>
     <div class="store soon" data-en="RuStore <small>soon</small>">RuStore <small>скоро</small></div>
     <div class="store soon" data-en="Google Play <small>soon</small>">Google Play <small>скоро</small></div>
+    <h2 data-en="iPhone and computer">iPhone и компьютер</h2>
+    <a class="store" href="../app/" data-en="Web version <small>in the browser</small>">Веб-версия <small>в браузере</small></a>
+    <p class="note" data-en="On an iPhone add it to the Home Screen (Share → Add to Home Screen): notifications come only from there.">На iPhone добавь её на экран «Домой» («Поделиться» → «На экран „Домой“»): уведомления приходят только оттуда.</p>
     <p class="note"><a class="back" href="../" data-en="What the app is">Что это за приложение</a></p>
   </main>
   <script>
