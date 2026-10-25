@@ -1,0 +1,52 @@
+<!doctype html>
+<!-- Where ЮKassa sends the user back after paying (supabase/functions/pay): the
+     purchase turns on by itself; this only leads back into the app. -->
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title data-en="Payment — REPuchat">Оплата — REPотека</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; background: #050807; color: #F4F5F7;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { width: 100%; max-width: 452px; padding: 0 16px; text-align: center; }
+    .logo { width: 220px; max-width: 70%; }
+    h1 { font-size: 28px; margin: 24px 0 8px; }
+    p { color: rgba(244, 245, 247, .65); line-height: 1.5; }
+    .open {
+      display: block; margin: 28px 0 12px; padding: 18px; border-radius: 999px;
+      background: #F1F3EC; color: #0A0F0B; font-weight: 700; font-size: 18px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="../logo.svg" data-en-src="../logo_en.svg" alt="REPотека">
+    <h1 data-en="Thank you!">Спасибо!</h1>
+    <p data-en="Once ЮKassa confirms the payment, everything turns on by itself, usually within a minute.">Как только ЮKassa подтвердит оплату, всё включится само — обычно за минуту.</p>
+    <a class="open" id="open" href="../app/" data-en="Back to the app">Вернуться в приложение</a>
+  </main>
+  <script>
+    if (!(navigator.language || 'ru').toLowerCase().startsWith('ru')) {
+      document.documentElement.lang = 'en';
+      for (const el of document.querySelectorAll('[data-en]')) el.innerHTML = el.dataset.en;
+      for (const el of document.querySelectorAll('img[data-en-src]')) {
+        el.src = el.dataset.enSrc;
+        el.alt = 'REPuchat';
+      }
+    }
+    // On Android the app itself; elsewhere the web app.
+    if (/Android/i.test(navigator.userAgent)) {
+      document.getElementById('open').href =
+        'intent://paid#Intent;scheme=repuchat;package=com.awi.repuchat;end';
+    }
+  </script>
+</body>
+</html>
