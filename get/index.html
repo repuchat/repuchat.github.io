@@ -13,12 +13,12 @@
     @font-face{font-family:Manrope;src:url("../assets/fonts/Manrope-700.ttf") format("truetype");font-weight:700;font-display:swap}
     @font-face{font-family:Oswald;src:url("../assets/fonts/Oswald-500.ttf") format("truetype");font-weight:500;font-display:swap}
     @font-face{font-family:Oswald;src:url("../assets/fonts/Oswald-600.ttf") format("truetype");font-weight:600;font-display:swap}
-    :root{color-scheme:dark;--ink:#050807;--text:#f4f5f7;--muted:#a6a9a5;--plus:#62ff00;--amber:#ffb600;--line:rgba(244,245,247,.12);--panel:rgba(18,31,34,.82)}
-    *{box-sizing:border-box}body{min-height:100vh;margin:0;color:var(--text);font:15px/1.6 Manrope,system-ui,sans-serif;background:radial-gradient(ellipse at 50% -12%,#176487 0,#0d485f 23%,#092d39 45%,#06171c 69%,var(--ink) 90%);background-attachment:fixed}
+    :root{color-scheme:dark;--ink:#050807;--text:#f4f5f7;--muted:#a6a9a5;--plus:#62ff00;--amber:#ffb600;--line:rgba(244,245,247,.12);--panel:rgba(18,31,34,.82);--ambient:#6a6a6a}
+    *{box-sizing:border-box}body{min-height:100vh;margin:0;color:var(--text);font:15px/1.6 Manrope,system-ui,sans-serif;background:radial-gradient(ellipse at 52% -12%,color-mix(in srgb,var(--ambient) 58%,#121415) 0,transparent 49%),radial-gradient(ellipse at 12% 57%,color-mix(in srgb,var(--ambient) 24%,transparent) 0,transparent 43%),linear-gradient(180deg,#181a1b 0,var(--ink) 78%);background-attachment:fixed}
     a{color:inherit}.wrap{width:min(720px,calc(100% - 36px));margin:0 auto}.topbar{height:88px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.logo{width:185px;max-width:50vw;display:block}.langs{display:flex;gap:8px;color:#78878b;font-size:12px;font-weight:700}.langs a{color:#b7c1c3;text-decoration:none}.langs a:hover{color:var(--plus)}
-    main{padding:54px 0 40px}.eyebrow,h2{font:500 14px/1.4 Oswald,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#a9b1b4}.eyebrow{margin:0 0 10px}h1,h3{font-family:Oswald,Manrope,sans-serif;font-weight:600;letter-spacing:-.02em}h1{margin:0 0 8px;font-size:clamp(38px,8vw,58px);line-height:1.08}p{color:#b9c2c4;margin:0}.lead{max-width:600px;margin-bottom:29px}
+    main{padding:54px 0 40px}.eyebrow,h2{font:500 14px/1.4 Oswald,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#a9b1b4}.eyebrow{margin:0 0 10px}h1,h3{font-family:Oswald,Manrope,sans-serif;font-weight:600;letter-spacing:-.02em}h1{margin:0 0 8px;font-size:clamp(38px,8vw,58px);line-height:1.08}p{color:#b9c2c4;margin:0}.lead{max-width:600px;margin-bottom:8px}
     .download-card{padding:22px;border:1px solid rgba(255,255,255,.08);border-radius:22px;background:var(--panel);box-shadow:0 16px 44px rgba(0,0,0,.18)}.download-card h2{margin:0 0 14px}.store{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;margin:10px 0;padding:12px 20px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(255,255,255,.06);font-weight:700;text-decoration:none;transition:filter .18s,transform .18s}.store:hover{filter:brightness(1.1);transform:translateY(-1px)}.store.main{border:0;background:linear-gradient(100deg,var(--plus),#c8f400 58%,var(--amber));color:#090e06}.store small{display:block;color:inherit;font-size:12px;font-weight:500;opacity:.72}.soon{display:flex;justify-content:space-between;padding:11px 12px;border-top:1px solid rgba(255,255,255,.07);color:#8e9a9c;font-size:13px}.soon span:last-child{color:#a5adae}
-    .web-card{margin-top:15px;padding:21px;border:1px solid rgba(255,255,255,.08);border-radius:22px;background:rgba(13,28,32,.76)}.web-card h2{margin:0 0 12px}.note{margin-top:12px;font-size:13px;color:#a7b1b3}.note a{color:var(--plus)}.update-note{margin-top:19px;padding-left:14px;border-left:2px solid var(--plus);font-size:13px}
+    .web-card{margin-top:15px;padding:21px;border:1px solid rgba(255,255,255,.08);border-radius:22px;background:rgba(13,28,32,.76)}.web-card h2{margin:0 0 12px}.note{margin-top:12px;font-size:13px;color:#a7b1b3}.note a{color:var(--plus)}.update-note{margin:0 0 29px;padding-left:14px;border-left:2px solid var(--plus);font-size:13px}
     footer{display:flex;justify-content:space-between;gap:18px;padding:22px 0 30px;border-top:1px solid var(--line);color:#929b9d;font-size:13px}footer a{text-decoration:none;color:#b4bdbf}footer a:hover{color:var(--plus)}
     @media(max-width:560px){.wrap{width:calc(100% - 32px)}.topbar{height:76px}.logo{width:160px}main{padding:42px 0 30px}.download-card,.web-card{padding:17px;border-radius:18px}.store{padding:11px 16px}footer{flex-direction:column}}
   </style>
@@ -31,7 +31,8 @@
   <main class="wrap">
     <p class="eyebrow" data-ru="Загрузка и доступ">Download and access</p>
     <h1 data-ru="Скачать REPотеку">Get REPuchat</h1>
-    <p class="lead" data-ru="Выберите Android-приложение или откройте веб-версию. Обновление устанавливается поверх старой версии; группы и REPутация сохраняются.">Choose the Android app or open the web version. Updates install over the existing version; your groups and REPutation stay.</p>
+    <p class="lead" data-ru="Выберите Android-приложение или откройте веб-версию.">Choose the Android app or open the web version.</p>
+    <p class="update-note" data-ru="Установка новой версии поверх старой сохраняет группы и REPутацию.">Installing a new version over the old one keeps your groups and REPutation.</p>
     <section class="download-card">
       <h2 data-ru="Android">Android</h2>
       <a class="store main" href="https://github.com/repuchat/repuchat.github.io/releases/latest/download/repuchat-arm64.apk" data-ru="Скачать APK &lt;small&gt;Последняя версия · ARM64&lt;/small&gt;">Download APK <small>Latest version · ARM64</small></a>
@@ -44,10 +45,13 @@
       <a class="store" href="../app/" data-ru="Открыть веб-версию &lt;small&gt;В браузере&lt;/small&gt;">Open web version <small>In your browser</small></a>
       <p class="note" data-ru="На iPhone добавьте веб-версию на экран «Домой»: нажмите «Поделиться» → «На экран „Домой“». Уведомления приходят только из неё.">On iPhone, add the web app to your Home Screen: Share → Add to Home Screen. Notifications are available from there.</p>
     </section>
-    <p class="update-note" data-ru="Установка новой версии поверх старой сохраняет группы и REPутацию.">Installing a new version over the old one keeps your groups and REPutation.</p>
   </main>
   <footer class="wrap"><a href="../" data-ru="← На главную">← Back to home</a><a href="mailto:repuchatapp@gmail.com">repuchatapp@gmail.com</a></footer>
   <script>
+    try {
+      const savedTint = localStorage.getItem('repuchat-site-tint');
+      if (savedTint && /^#[0-9a-f]{6}$/i.test(savedTint)) document.documentElement.style.setProperty('--ambient', savedTint);
+    } catch {}
     const requestedLanguage = new URLSearchParams(location.search).get('lang');
     const isRussian = requestedLanguage === 'ru' || (requestedLanguage !== 'en' && (navigator.language || 'en').toLowerCase().startsWith('ru'));
     if (isRussian) {
