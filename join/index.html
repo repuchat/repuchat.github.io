@@ -55,7 +55,7 @@
 </div>
 <p class="small" data-ru="Приложение есть, но не открылось? Открой REPотеку → Вступить и вставь приглашение.">Have the app, but it didn't open? Open REPuchat → Join and paste the invite.</p>
 </main>
-
+<script>
     const isRussian = (navigator.language || 'en').toLowerCase().startsWith('ru');
     if (isRussian) {
       document.documentElement.lang = 'ru';
@@ -65,17 +65,7 @@
         el.alt = 'REPотека';
       }
     }
-<script>
-    // English logo is the crawlable/default asset; Russian users get the localized logo.
-    if ((navigator.language || 'ru').toLowerCase().startsWith('ru')) {
-    }
-    // Not Russian, the page speaks English: [data-en] takes its English text, the
-    // logo its English picture.
-    const en = !(navigator.language || 'ru').toLowerCase().startsWith('ru');
-    if (en) {
-      document.documentElement.lang = 'en';
-      for (const el of document.querySelectorAll('[data-en]')) el.innerHTML = el.dataset.en;
-    }
+    const en = !isRussian;
     const token = location.hash.slice(1);
     // Chrome on Android opens an app by an intent link; elsewhere the app's own one.
     const android = /Android/i.test(navigator.userAgent);

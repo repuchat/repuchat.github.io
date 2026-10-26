@@ -53,7 +53,7 @@
 <p class="note" data-ru="На iPhone добавь её на экран «Домой» («Поделиться» → «На экран „Домой“»): уведомления приходят только оттуда.">On an iPhone add it to the Home Screen (Share → Add to Home Screen): notifications come only from there.</p>
 <p class="note"><a class="back" data-ru="Что это за приложение" href="../">What the app is</a></p>
 </main>
-
+<script>
     const isRussian = (navigator.language || 'en').toLowerCase().startsWith('ru');
     if (isRussian) {
       document.documentElement.lang = 'ru';
@@ -62,16 +62,6 @@
         el.src = el.dataset.ruSrc;
         el.alt = 'REPотека';
       }
-    }
-<script>
-    // English logo is the crawlable/default asset; Russian users get the localized logo.
-    if ((navigator.language || 'ru').toLowerCase().startsWith('ru')) {
-    }
-    // Not Russian, the page speaks English: [data-en] takes its English text, the
-    // logo its English picture.
-    if (!(navigator.language || 'ru').toLowerCase().startsWith('ru')) {
-      document.documentElement.lang = 'en';
-      for (const el of document.querySelectorAll('[data-en]')) el.innerHTML = el.dataset.en;
     }
   </script>
 </body>

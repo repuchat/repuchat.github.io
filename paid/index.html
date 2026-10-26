@@ -31,7 +31,7 @@
 <p data-ru="Как только ЮKassa подтвердит оплату, всё включится само — обычно за минуту.">Once ЮKassa confirms the payment, everything turns on by itself, usually within a minute.</p>
 <a class="open" data-ru="Вернуться в приложение" href="../app/" id="open">Back to the app</a>
 </main>
-
+<script>
     const isRussian = (navigator.language || 'en').toLowerCase().startsWith('ru');
     if (isRussian) {
       document.documentElement.lang = 'ru';
@@ -40,14 +40,6 @@
         el.src = el.dataset.ruSrc;
         el.alt = 'REPотека';
       }
-    }
-<script>
-    // English logo is the crawlable/default asset; Russian users get the localized logo.
-    if ((navigator.language || 'ru').toLowerCase().startsWith('ru')) {
-    }
-    if (!(navigator.language || 'ru').toLowerCase().startsWith('ru')) {
-      document.documentElement.lang = 'en';
-      for (const el of document.querySelectorAll('[data-en]')) el.innerHTML = el.dataset.en;
     }
     // On Android the app itself; elsewhere the web app.
     if (/Android/i.test(navigator.userAgent)) {
