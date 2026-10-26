@@ -21,6 +21,7 @@
     a { color: #F1F3EC; }
     footer { margin-top: 40px; font-size: 14px; color: rgba(244, 245, 247, .45); }
   </style>
+  <link rel="stylesheet" href="../assets/ambient.css"/>
 </head>
 <body>
   <main>
@@ -50,8 +51,10 @@
 
     <footer><a href="../">REPотека</a> · <a href="../privacy/" data-en="Privacy policy">Политика конфиденциальности</a></footer>
   </main>
+  <script src="../assets/ambient.js"></script>
+  <script src="../assets/language.js"></script>
   <script>
-    if (!(navigator.language || 'ru').toLowerCase().startsWith('ru')) {
+    if (window.REP_SITE_LANG === 'en') {
       document.documentElement.lang = 'en';
       for (const el of document.querySelectorAll('[data-en]')) el.innerHTML = el.dataset.en;
     }

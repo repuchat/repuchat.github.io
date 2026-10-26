@@ -22,6 +22,7 @@
     footer{display:flex;justify-content:space-between;gap:18px;padding:22px 0 30px;border-top:1px solid var(--line);color:#929b9d;font-size:13px}footer a{text-decoration:none;color:#b4bdbf}footer a:hover{color:var(--plus)}
     @media(max-width:560px){.wrap{width:calc(100% - 32px)}.topbar{height:76px}.logo{width:160px}main{padding:42px 0 30px}.download-card,.web-card{padding:17px;border-radius:18px}.store{padding:11px 16px}footer{flex-direction:column}}
   </style>
+  <link rel="stylesheet" href="../assets/ambient.css"/>
 </head>
 <body>
   <header class="wrap topbar">
@@ -47,13 +48,14 @@
     </section>
   </main>
   <footer class="wrap"><a href="../" data-ru="← На главную">← Back to home</a><a href="mailto:repuchatapp@gmail.com">repuchatapp@gmail.com</a></footer>
+  <script src="../assets/ambient.js"></script>
+  <script src="../assets/language.js"></script>
   <script>
     try {
       const savedTint = localStorage.getItem('repuchat-site-tint');
       if (savedTint && /^#[0-9a-f]{6}$/i.test(savedTint)) document.documentElement.style.setProperty('--ambient', savedTint);
     } catch {}
-    const requestedLanguage = new URLSearchParams(location.search).get('lang');
-    const isRussian = requestedLanguage === 'ru' || (requestedLanguage !== 'en' && (navigator.language || 'en').toLowerCase().startsWith('ru'));
+    const isRussian = window.REP_SITE_LANG === 'ru';
     if (isRussian) {
       document.documentElement.lang = 'ru';
       for (const el of document.querySelectorAll('[data-ru]')) el.innerHTML = el.dataset.ru;

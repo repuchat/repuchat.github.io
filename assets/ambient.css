@@ -1,0 +1,61 @@
+@property --ambient {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #6a6a6a;
+}
+
+:root {
+  --ambient: #6a6a6a;
+  transition: --ambient .7s ease;
+}
+
+body {
+  isolation: isolate;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--ambient) 48%, #282828) 0%,
+    color-mix(in srgb, var(--ambient) 22%, #161717) 31%,
+    #050807 76%
+  );
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+  inset: -20vh -20vw;
+  width: 140vw;
+  height: 140vh;
+  background:
+    radial-gradient(ellipse 40% 34% at 73% 27%, color-mix(in srgb, var(--ambient) 34%, transparent), transparent 72%),
+    radial-gradient(ellipse 36% 38% at 12% 48%, color-mix(in srgb, var(--ambient) 19%, transparent), transparent 70%),
+    radial-gradient(ellipse 38% 28% at 75% 82%, color-mix(in srgb, var(--ambient) 21%, transparent), transparent 70%);
+  filter: blur(8px);
+  animation: ambient-fallback-drift 28s ease-in-out infinite alternate;
+}
+
+.ambient-canvas {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ambient-webgl-ready body::before {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes ambient-fallback-drift {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); }
+  to { transform: translate3d(3%, 2%, 0) scale(1.04); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { transition: none; }
+  body::before { animation: none; }
+}

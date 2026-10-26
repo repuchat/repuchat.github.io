@@ -8,39 +8,37 @@
 <meta content="An invite to a REPuchat group" property="og:title"/>
 <meta content="+REP and −REP among friends" property="og:description"/>
 <style>
-    :root { color-scheme: dark; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; min-height: 100vh; display: flex; align-items: center;
-      justify-content: center; background: #050807; color: #F4F5F7;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    }
-    main { width: 100%; max-width: 452px; padding: 0 16px; text-align: center; }
-    .logo { width: 220px; max-width: 70%; }
-    h1 { font-size: 28px; margin: 24px 0 8px; }
-    p { color: rgba(244, 245, 247, .65); line-height: 1.5; margin: 8px 0; }
-    .open {
-      display: block; margin: 28px 0 12px; padding: 18px; border-radius: 999px;
-      background: #F1F3EC; color: #0A0F0B; font-weight: 700; font-size: 18px;
-      text-decoration: none;
-    }
-    p a { color: #F1F3EC; }
-    .small { font-size: 14px; }
-    .noapp {
-      display: flex; align-items: center; justify-content: center; gap: 12px;
-      margin: 20px 0 8px; font-size: 17px; color: rgba(244, 245, 247, .75);
-    }
-    .get {
-      padding: 10px 22px; border-radius: 999px; background: #BCFF04; color: #0A0F0B;
-      font-weight: 700; text-decoration: none; text-transform: uppercase;
-      letter-spacing: .04em; box-shadow: 0 0 24px rgba(188, 255, 4, .25);
-    }
-    .copy {
-      display: block; width: 100%; padding: 14px; border-radius: 999px;
-      border: 1px solid rgba(244, 245, 247, .25); background: none; color: inherit;
-      font: inherit; cursor: pointer;
-    }
+    @font-face{font-family:Manrope;src:url("../assets/fonts/Manrope-400.ttf") format("truetype");font-weight:400;font-display:swap}
+    @font-face{font-family:Manrope;src:url("../assets/fonts/Manrope-600.ttf") format("truetype");font-weight:600;font-display:swap}
+    @font-face{font-family:Manrope;src:url("../assets/fonts/Manrope-700.ttf") format("truetype");font-weight:700;font-display:swap}
+    @font-face{font-family:Oswald;src:url("../assets/fonts/Oswald-500.ttf") format("truetype");font-weight:500;font-display:swap}
+    @font-face{font-family:Oswald;src:url("../assets/fonts/Oswald-600.ttf") format("truetype");font-weight:600;font-display:swap}
+    @property --ambient{syntax:"<color>";inherits:true;initial-value:#6a6a6a}
+    :root{color-scheme:dark;--ambient:#6a6a6a;--text:#f4f5f7;--line:rgba(244,245,247,.12);transition:--ambient .7s ease}
+    *{box-sizing:border-box}
+    body{isolation:isolate;position:relative;display:grid;place-items:center;min-height:100vh;margin:0;padding:24px;color:var(--text);font:16px/1.55 Manrope,system-ui,sans-serif;letter-spacing:-.015em;background:linear-gradient(180deg,color-mix(in srgb,var(--ambient) 48%,#282828) 0%,color-mix(in srgb,var(--ambient) 22%,#161717) 31%,#050807 76%)}
+    body:before{content:"";position:fixed;z-index:-1;pointer-events:none;inset:-20vh -20vw;width:140vw;height:140vh;background:radial-gradient(ellipse 40% 34% at 73% 27%,color-mix(in srgb,var(--ambient) 34%,transparent),transparent 72%),radial-gradient(ellipse 36% 38% at 12% 48%,color-mix(in srgb,var(--ambient) 19%,transparent),transparent 70%),radial-gradient(ellipse 38% 28% at 75% 82%,color-mix(in srgb,var(--ambient) 21%,transparent),transparent 70%);filter:blur(8px);transform:translate3d(-2%,-1%,0);will-change:transform;animation:ambient-drift 28s ease-in-out infinite alternate}
+    @keyframes ambient-drift{from{transform:translate3d(-2%,-1%,0) scale(1)}to{transform:translate3d(3%,2%,0) scale(1.04)}}
+    .ambient-canvas{position:fixed;z-index:-1;inset:0;width:100%;height:100%;pointer-events:none}.ambient-webgl-ready body:before{opacity:0;animation:none}
+    main{width:min(100%,480px);padding:32px;border:1px solid var(--line);border-radius:26px;background:color-mix(in srgb,var(--ambient) 16%,rgba(15,17,16,.86));box-shadow:0 24px 80px rgba(0,0,0,.28);text-align:center;backdrop-filter:blur(16px);animation:card-arrive .5s cubic-bezier(.2,.8,.2,1) both}
+    @keyframes card-arrive{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    .logo{display:block;width:190px;max-width:70%;margin:0 auto 26px}
+    h1{margin:0 0 8px;font:600 32px/1.15 Oswald,Manrope,system-ui,sans-serif;letter-spacing:-.025em}
+    p{margin:8px 0;color:#b9c2c4;line-height:1.6}
+    .open{display:flex;align-items:center;justify-content:center;min-height:58px;margin:26px 0 12px;padding:12px 20px;border:0;border-radius:999px;background:linear-gradient(100deg,#62ff00,#c8f400 58%,#ffb600);color:#090e06;font-weight:700;font-size:17px;text-decoration:none;transition:filter .2s,transform .2s,box-shadow .25s;box-shadow:0 8px 26px rgba(98,255,0,.12)}
+    .open:hover,.get:hover{filter:brightness(1.07);transform:translateY(-2px);box-shadow:0 10px 30px rgba(98,255,0,.2)}
+    .copy{display:block;width:100%;min-height:50px;padding:12px 16px;border:1px solid rgba(244,245,247,.16);border-radius:999px;background:rgba(255,255,255,.06);color:inherit;font:600 14px Manrope,system-ui,sans-serif;cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+    .copy:hover{transform:translateY(-1px);border-color:rgba(244,245,247,.3);background:rgba(255,255,255,.1)}
+    .noapp{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:9px;margin:23px 0 7px;color:#b9c2c4;font-size:14px}
+    .web-option{display:flex;flex-basis:100%;align-items:center;justify-content:center;gap:9px}
+    .get,.web-fallback{padding:8px 13px;border:1px solid color-mix(in srgb,var(--ambient) 28%,rgba(255,255,255,.12));border-radius:999px;background:color-mix(in srgb,var(--ambient) 14%,rgba(255,255,255,.04));color:var(--text);font-size:13px;font-weight:700;text-decoration:none;transition:filter .2s,transform .2s,box-shadow .25s,border-color .25s}
+    .web-fallback:hover{filter:brightness(1.15);transform:translateY(-2px);border-color:color-mix(in srgb,var(--ambient) 55%,rgba(255,255,255,.2));box-shadow:0 8px 24px color-mix(in srgb,var(--ambient) 18%,transparent)}
+    .small{font-size:13px}
+    a:focus-visible,button:focus-visible{outline:2px solid #f4f5f7;outline-offset:3px}
+    @media(max-width:480px){body{padding:16px}main{padding:26px 20px;border-radius:22px}.logo{width:165px;margin-bottom:22px}h1{font-size:29px}}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
   </style>
+  <link rel="stylesheet" href="../assets/ambient.css"/>
 </head>
 <body>
 <main>
@@ -51,12 +49,18 @@
 <button class="copy" data-ru="Скопировать приглашение" id="copy" type="button">Copy the invite</button>
 <div class="noapp">
 <span data-ru="Нет приложения?">No app?</span>
-<a class="get" data-ru="Скачать" href="../get/">Get it</a>
+<a class="get" data-ru="Скачать">Get it</a>
+<div class="web-option">
+<span data-ru="или">or</span>
+<a class="web-fallback" data-ru="открыть веб-версию" id="web-fallback">use web</a>
+</div>
 </div>
 <p class="small" data-ru="Приложение есть, но не открылось? Открой REPотеку → Вступить и вставь приглашение.">Have the app, but it didn't open? Open REPuchat → Join and paste the invite.</p>
 </main>
+<script src="../assets/ambient.js"></script>
+<script src="../assets/language.js"></script>
 <script>
-    const isRussian = (navigator.language || 'en').toLowerCase().startsWith('ru');
+    const isRussian = window.REP_SITE_LANG === 'ru';
     if (isRussian) {
       document.documentElement.lang = 'ru';
       for (const el of document.querySelectorAll('[data-ru]')) el.innerHTML = el.dataset.ru;
@@ -66,6 +70,10 @@
       }
     }
     const en = !isRussian;
+    try {
+      const savedTint = localStorage.getItem('repuchat-site-tint');
+      if (/^#[0-9a-f]{6}$/i.test(savedTint || '')) document.documentElement.style.setProperty('--ambient', savedTint);
+    } catch (_) {}
     const token = location.hash.slice(1);
     // Chrome on Android opens an app by an intent link; elsewhere the app's own one.
     const android = /Android/i.test(navigator.userAgent);
@@ -75,6 +83,8 @@
       ? 'intent://join/' + token + '#Intent;scheme=repuchat;package=com.awi.repuchat;end'
       : '../app/#/?join=' + token;
     if (!android) open.textContent = en ? 'Open in the browser' : 'Открыть в браузере';
+    document.querySelector('.get').href = '../get/';
+    document.getElementById('web-fallback').href = '../app/#/?join=' + token;
     document.getElementById('copy').onclick = async () => {
       try {
         await navigator.clipboard.writeText(location.href);
