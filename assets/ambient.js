@@ -216,7 +216,14 @@
 
   const start = performance.now();
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const frameInterval = 1000 / 30;
+  let lastFrame = 0;
   function frame(now) {
+    if (now - lastFrame < frameInterval) {
+      if (!reduceMotion && !document.hidden) requestAnimationFrame(frame);
+      return;
+    }
+    lastFrame = now;
     const seconds = reduceMotion ? 0 : (now - start) / 1000;
     gl.uniform1f(u.time, seconds);
     gl.uniform2f(u.tilt, 0, 0);
