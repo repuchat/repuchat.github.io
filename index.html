@@ -4,19 +4,19 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="theme-color" content="#06151a"/>
-  <title data-ru="REPотека — Социальный рейтинг в вашей группе">REPuchat — Reputation in your group</title>
-  <meta name="description" content="REPuchat is an app for friends, family and teams to give +REP and −REP, discuss reports and see group digests."/>
+  <title data-ru="REPотека — Репутация в вашей группе">REPuchat — Reputation in your group</title>
+  <meta name="description" content="REPuchat is an invite-only group reputation app. Give +REP and −REP with reasons, challenge reports and see group digests."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://repuchat.com/"/>
-  <meta property="og:title" content="REPuchat — +REP and −REP in your group"/>
-  <meta property="og:description" content="Give +REP and −REP in your group, discuss reports and see group digests."/>
+  <meta property="og:title" content="REPuchat — Reputation in your group"/>
+  <meta property="og:description" content="An invite-only group reputation app for +REP, −REP, disputes and digests."/>
   <meta property="og:image" content="https://repuchat.com/logo.svg"/>
   <meta name="twitter:card" content="summary"/>
   <link rel="canonical" href="https://repuchat.com/"/>
   <link rel="icon" type="image/png" sizes="512x512" href="assets/icon.png"/>
   <link rel="apple-touch-icon" href="assets/icon.png"/>
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"REPuchat","url":"https://repuchat.com/","applicationCategory":"SocialNetworkingApplication","operatingSystem":"Android, iOS, Web","description":"An app for friends, family, neighbours and teams: +REP and −REP with reasons, disputes and digests.","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
+    {"@context":"https://schema.org","@type":"SoftwareApplication","name":"REPuchat","url":"https://repuchat.com/","applicationCategory":"SocialNetworkingApplication","operatingSystem":"Android, Web","description":"An invite-only group reputation app for +REP, −REP, disputes and digests.","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
   </script>
   <style>
     @font-face{font-family:Manrope;src:url("assets/fonts/Manrope-400.ttf") format("truetype");font-weight:400;font-display:swap}
@@ -41,17 +41,20 @@
     .eyebrow,.section-label{margin:0 0 14px;color:#a9b1b4;font:500 14px/1.35 Oswald,sans-serif;letter-spacing:.13em;text-transform:uppercase}
     h1,h2,h3{font-family:Oswald,Manrope,system-ui,sans-serif;font-weight:600;letter-spacing:-.025em}
     h1{max-width:780px;margin:0 0 18px;font-size:clamp(48px,8vw,88px);line-height:1.02}h1 .plus{color:var(--plus)}h1 .minus{color:var(--minus)}
-    .intro{max-width:720px;margin:0;color:#c2c9ca;font-size:18px;line-height:1.72}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
+    .intro{max-width:720px;margin:0;color:#c2c9ca;font-size:18px;line-height:1.72}.intro .rep-plus{color:var(--plus);font-weight:700}.intro .rep-minus{color:var(--minus);font-weight:700}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 0}
     .button{min-height:54px;display:inline-flex;align-items:center;justify-content:center;padding:0 25px;border:1px solid rgba(255,255,255,.13);border-radius:999px;background:rgba(255,255,255,.08);text-decoration:none;font-weight:700;transition:filter .18s,transform .18s}.button:hover{filter:brightness(1.08);transform:translateY(-1px)}.button.primary{border:0;background:linear-gradient(100deg,var(--plus),#c8f400 58%,var(--amber));color:#090e06}
     .quickfacts{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.quickfacts span{padding:8px 13px;border:1px solid rgba(255,255,255,.09);border-radius:999px;background:color-mix(in srgb,var(--ambient) 16%,rgba(9,12,11,.62));color:#b7c1c3;font-size:12px}
     .section{padding:66px 0;border-bottom:1px solid var(--line)}.section-label{margin-bottom:11px}.section h2{margin:0 0 12px;font-size:clamp(34px,5vw,48px);line-height:1.12}.section-lead{max-width:720px;margin:0;color:#b9c2c4}
+    .example{display:grid;grid-template-columns:1fr minmax(280px,.8fr);align-items:center;gap:40px}.example h2{max-width:540px}.example-copy{max-width:500px;margin:0;color:#b9c2c4}
+    .report-card{padding:19px;border:1px solid rgba(138,255,0,.1);border-radius:22px;background:linear-gradient(115deg,rgba(41,49,22,.88),rgba(17,21,16,.94));box-shadow:0 14px 36px rgba(0,0,0,.2);transition:opacity .2s ease}.report-card.is-changing{opacity:.25}.report-row{display:grid;grid-template-columns:78px minmax(0,1fr) auto;align-items:center;gap:4px 11px}.report-people{grid-column:1;grid-row:1 / span 3;display:flex;align-items:center;align-self:start;gap:3px;margin-top:2px}.report-avatar{width:30px;height:30px;display:grid;place-items:center;flex:none;border:2px solid rgba(20,25,17,.95);border-radius:50%;color:#f4f5f7;font-size:11px;font-weight:800}.report-avatar.person-0{background:#638479}.report-avatar.person-1{background:#a47859}.report-avatar.person-2{background:#826b9b}.report-avatar.person-3{background:#527d9b}.report-avatar.person-4{background:#a45f67}.report-avatar.person-5{background:#a48649}.report-arrow{color:#89918a;font-size:14px}.report-reason{grid-column:2;grid-row:1;margin:0;font-size:16px;font-weight:700;line-height:1.3}.report-meta{grid-column:2;grid-row:2;color:#a6ada5;font-size:12px;line-height:1.35}.report-place{grid-column:2;grid-row:3;display:flex;align-items:center;gap:4px;color:#a6ada5;font-size:12px;line-height:1.35}.report-place svg{width:14px;height:14px;flex:none;fill:currentColor}.report-score{grid-column:3;grid-row:1 / span 3;padding-left:4px;font:600 25px/1 Oswald,sans-serif}.report-score.plus{color:var(--plus)}.report-score.minus{color:var(--minus)}.currency-note{margin:8px 0 0;color:#9da8aa;font-size:12px}
+    .report-row{grid-template-columns:148px minmax(0,1fr) auto;gap:4px 11px}.report-people{width:148px;display:grid;grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr);align-items:start;gap:0;margin:0}.report-person{display:flex;min-width:0;flex-direction:column;align-items:center;gap:3px}.report-person-name{max-width:100%;overflow:hidden;color:#c5ccc4;font-size:10px;line-height:1.2;text-overflow:ellipsis;white-space:nowrap}.report-arrow{align-self:start;margin-top:8px;text-align:center;line-height:1.2}
     .features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:27px}.feature{min-height:130px;padding:20px 22px;border:1px solid rgba(255,255,255,.08);border-radius:20px;background:var(--panel);box-shadow:0 12px 36px rgba(0,0,0,.12)}.feature h3{margin:0 0 6px;font-size:20px}.feature p{margin:0;color:#aeb8ba;font-size:14px}.feature-icon{display:grid;place-items:center;width:34px;height:34px;margin-bottom:9px;color:var(--plus)}.feature-icon .material-icon{display:none;font:24px/1 MaterialIcons}.feature-icon svg{width:25px;height:25px;fill:currentColor}.material-icons-loaded .feature-icon .material-icon{display:block}.material-icons-loaded .feature-icon svg{display:none}.material-icons-loaded .plus-icon .material-icon,.material-icons-loaded .digest-icon .material-icon{display:none}.material-icons-loaded .plus-icon svg,.material-icons-loaded .digest-icon svg{display:block}.plus-icon .icon-plus{fill:var(--plus)}.plus-icon .icon-minus{fill:var(--minus)}.dispute-icon{color:var(--amber)}.digest-icon{color:#b9c2c4}.invite-icon{color:#b9c2c4}
     .pricing{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:26px}.price{padding:22px;border:1px solid var(--line);border-radius:20px;background:var(--panel)}.price.featured{border:1px solid transparent;background:linear-gradient(145deg,rgba(18,31,34,.97),rgba(12,27,30,.97)) padding-box,linear-gradient(120deg,rgba(138,255,0,.58),rgba(0,244,255,.48)) border-box;box-shadow:0 12px 36px rgba(0,0,0,.18)}.price-label{color:#b4bdbf;font-size:13px}.plus-label{display:flex;align-items:center;gap:8px}.plus-label img{width:24px;height:24px;object-fit:contain}.price b{display:block;margin:7px 0;font:600 32px Oswald,sans-serif}.price b span{font:500 14px Manrope,sans-serif;color:var(--muted)}.price p{margin:0;color:#b4bdbf;font-size:14px}.tag{float:right;padding:5px 9px;border-radius:99px;background:rgba(0,244,255,.1);color:#72eee5;font-size:11px;font-weight:700}
     .plus-list{display:grid;grid-template-columns:1fr 1fr;gap:9px 24px;padding:17px 0 0;margin:17px 0 0;border-top:1px solid var(--line);list-style:none}.plus-list li{position:relative;padding-left:22px;color:#d5d9ce;font-size:13px}.plus-list li:before{content:"+";position:absolute;left:0;color:var(--plus);font-weight:800}
     .boss-card{display:grid;grid-template-columns:1fr auto;align-items:center;gap:24px;margin-top:24px;padding:23px;border:1px solid transparent;border-radius:20px;background:linear-gradient(145deg,rgba(24,24,24,.97),rgba(13,13,13,.97)) padding-box,linear-gradient(120deg,rgba(255,136,0,.58),rgba(255,30,10,.5)) border-box;box-shadow:0 12px 36px rgba(0,0,0,.18)}.boss-title{display:flex;align-items:center;gap:10px;margin-bottom:6px}.groupocracy-mark{display:inline-block;flex:none;width:26px;height:26px;background:linear-gradient(90deg,var(--groupocracy-orange),var(--groupocracy-red));-webkit-mask:url("assets/branding/groupocracy.svg") center/contain no-repeat;mask:url("assets/branding/groupocracy.svg") center/contain no-repeat}.boss-card h3{margin:0;font-size:22px}.boss-card p{max-width:660px;margin:0;color:#b4bdbf;font-size:14px}.boss-price{display:grid;justify-items:end;gap:3px;white-space:nowrap}.boss-price b{font:600 21px Oswald,sans-serif;background:linear-gradient(90deg,var(--groupocracy-orange),var(--groupocracy-red));background-clip:text;-webkit-background-clip:text;color:transparent}.boss-price small{color:#b4bdbf;font-size:11px}
-    .download{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px;border:1px solid color-mix(in srgb,var(--ambient) 28%,rgba(255,255,255,.08));border-radius:20px;background:color-mix(in srgb,var(--ambient) 16%,rgba(15,18,16,.84))}.download h2{margin:0 0 6px;font-size:30px}.download p{margin:0;color:#b7c2bb}.download .actions{margin:0}.download .button{min-height:48px}
     footer{display:flex;justify-content:space-between;gap:20px;padding:26px 0 34px;color:#929b9d;font-size:13px}footer a{color:#b4bdbf;text-decoration:none}footer a:hover{color:var(--plus)}.footlinks{display:flex;gap:18px;flex-wrap:wrap}
-    @media(max-width:640px){.wrap{width:calc(100% - 32px)}.topbar{height:76px}.brand img{width:140px}.nav{gap:7px}.nav>a:not(.nav-cta){display:none}.nav .nav-cta{padding:8px 11px}.color-picker summary span:not(.current-tint){display:none}.langs{gap:4px}.hero{padding:62px 0 54px}.intro{font-size:16px}.button{flex:1 1 100%}.section{padding:49px 0}.features,.pricing,.plus-list{grid-template-columns:1fr}.feature{min-height:0;padding:18px 19px}.boss-card{grid-template-columns:1fr}.boss-price{justify-items:start;white-space:normal}.download{align-items:stretch;flex-direction:column;padding:21px}.download .actions{flex-direction:column}footer{flex-direction:column}}
+    @media(max-width:760px){.example{grid-template-columns:1fr;gap:24px}}
+    @media(max-width:640px){.wrap{width:calc(100% - 32px)}.topbar{height:76px}.brand img{width:140px}.nav{gap:7px}.nav>a:not(.nav-cta){display:none}.nav .nav-cta{padding:8px 11px}.color-picker summary span:not(.current-tint){display:none}.langs{gap:4px}.hero{padding:62px 0 54px}.intro{font-size:16px}.button{flex:1 1 100%}.section{padding:49px 0}.features,.pricing,.plus-list{grid-template-columns:1fr}.feature{min-height:0;padding:18px 19px}.boss-card{grid-template-columns:1fr}.boss-price{justify-items:start;white-space:normal}.report-row{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}.report-people{grid-column:1;grid-row:1;align-self:center;margin:0}.report-reason{grid-column:1;grid-row:2}.report-meta{grid-column:1;grid-row:3}.report-place{grid-column:1;grid-row:4}.report-score{grid-column:2;grid-row:1 / span 4;padding-left:0}footer{flex-direction:column}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
   </style>
   <link rel="stylesheet" href="assets/ambient.css"/>
@@ -86,22 +89,41 @@
   </header>
   <main class="wrap">
     <section class="hero">
-      <p class="eyebrow" data-ru="Приложение для групп друзей, семьи и команд">App for friends, family and teams</p>
-      <h1 data-ru="&lt;span class='plus'&gt;+REP&lt;/span&gt; и &lt;span class='minus'&gt;−REP&lt;/span&gt; в вашей группе"><span class="plus">+REP</span> and <span class="minus">−REP</span> in your group</h1>
-      <p class="intro" data-ru="Отправляйте участникам группы +REP и −REP с причиной. Спорные REPорты можно оспорить и вынести на голосование. В итогах собраны события недели, месяца и года.">Give group members +REP and −REP with a reason. Disputed REPorts can be challenged and voted on. Digests collect the group’s events by week, month and year.</p>
+      <p class="eyebrow" data-ru="REPотека · +REP и −REP для закрытых групп">REPuchat · +REP and −REP for private groups</p>
+      <h1 data-ru="Репутация в вашей группе">Reputation in your group</h1>
+      <p class="intro" data-ru="Отправляйте участникам группы &lt;span class='rep-plus'&gt;+REP&lt;/span&gt; и &lt;span class='rep-minus'&gt;−REP&lt;/span&gt; с причиной. Спорный REPорт можно оспорить и вынести на голосование. REPотека — не открытый чат: попасть в группу можно только по приглашению.">Give group members <span class="rep-plus">+REP</span> and <span class="rep-minus">−REP</span> with a reason. A disputed REPort can be challenged and put to a group vote. REPuchat isn’t an open chat platform: you can join a group by invitation only.</p>
       <div class="actions">
         <a class="button primary" href="get/" data-ru="Скачать для Android">Get it for Android</a>
         <a class="button" href="app/" data-ru="Открыть веб-версию">Open web version</a>
       </div>
-      <div class="quickfacts"><span data-ru="Группы по приглашению">Invite-only groups</span></div>
+      <div class="quickfacts"><span data-ru="Вход только по приглашению">Invite-only groups</span><span data-ru="Для iPhone - веб-версия">Use web version for iPhone</span></div>
+    </section>
+    <section class="section example" aria-labelledby="example-title">
+      <div>
+        <p class="section-label" data-ru="Примеры REPортов">REPort examples</p>
+        <h2 id="example-title" data-ru="Хорошие поступки и проступки — в REPортах">Good deeds and missteps, in REPorts</h2>
+        <p class="example-copy" data-ru="Участники указывают причину, а сами решают, сколько REPочков добавить или снять.">Members add a reason and choose how many REPoints to give or take away.</p>
+      </div>
+      <article class="report-card">
+        <div class="report-row" aria-live="off">
+          <div class="report-people" aria-hidden="true"><span class="report-person"><span class="report-avatar person-0" data-report-author>M</span><span class="report-person-name" data-report-author-name>Max</span></span><span class="report-arrow">→</span><span class="report-person"><span class="report-avatar person-1" data-report-target>A</span><span class="report-person-name" data-report-target-name>Alex</span></span></div>
+          <p class="report-reason" data-report-reason>Was 40 minutes late</p>
+          <span class="report-meta" data-report-meta>1 hour ago</span>
+          <span class="report-place">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+            <span data-report-place>Team meetup</span>
+          </span>
+          <span class="report-score minus" data-report-score aria-label="Minus 2 REPoints">−2</span>
+        </div>
+      </article>
     </section>
     <section class="section" id="features">
       <p class="section-label" data-ru="Основные функции">Features</p>
       <h2 data-ru="Группы, REPорты и итоги">Groups, REPorts and digests</h2>
       <div class="features">
         <article class="feature"><span class="feature-icon plus-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="icon-plus" d="M10.8 1.5h2.4v4.8H18v2.4h-4.8v4.8h-2.4V8.7H6V6.3h4.8z"/><path class="icon-minus" d="M5.5 17.2h13v2.4h-13z"/></svg></span><h3 data-ru="Оценки с причиной">Points with a reason</h3><p data-ru="Текст, место, фото, реакции и комментарии к REPорту.">Add a reason, place, photo, reactions and comments to a REPort.</p></article>
-        <article class="feature"><span class="feature-icon dispute-icon" aria-hidden="true"><span class="material-icon">&#xf7ad;</span><svg viewBox="0 0 24 24"><path d="M1 21h12v-2H1v2zm5.24-11.25 3.54-3.54 7.78 7.78-3.54 3.54-7.78-7.78zm14.47-5.12-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83a1 1 0 0 0 0-1.41zM2.49 11.84l1.41-1.41 3.54 3.54-1.41 1.41z"/></svg></span><h3 data-ru="Оспаривания">Disputes</h3><p data-ru="Участники могут оспорить REPорт. Группа решает голосованием.">Members can challenge a REPort. The group decides by vote.</p></article>
-        <article class="feature"><span class="feature-icon digest-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill-rule="evenodd" d="M6 2.75h12A2.25 2.25 0 0 1 20.25 5v14A2.25 2.25 0 0 1 18 21.25H6A2.25 2.25 0 0 1 3.75 19V5A2.25 2.25 0 0 1 6 2.75Zm1.5 1.75v15h9v-15z"/><path d="M9 7h6v1.5H9zM9 10h4v1.5H9zM8.5 17h2v-3h-2zM12 17h2v-5h-2zM15.5 17h2v-7h-2z"/></svg></span><h3 data-ru="Итоги группы">Group digests</h3><p data-ru="Смотрите сводку за день, неделю, месяц или год и делитесь карточками.">Review daily, weekly, monthly or yearly summaries and share cards.</p></article>
+        <article class="feature"><span class="feature-icon dispute-icon" aria-hidden="true"><span class="material-icon">&#xf7ad;</span><svg viewBox="0 0 24 24"><path d="M1 21h12v-2H1v2zm5.24-11.25 3.54-3.54 7.78 7.78-3.54 3.54-7.78-7.78zm14.47-5.12-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83a1 1 0 0 0 0-1.41zM2.49 11.84l1.41-1.41 3.54 3.54-1.41 1.41z"/></svg></span><h3 data-ru="Оспаривания и правила">Disputes and group rules</h3><p data-ru="Участники могут оспорить −REP, а группа решает голосованием по заранее заданным правилам.">Members can challenge a −REP. The group votes under rules agreed in advance.</p></article>
+        <article class="feature"><span class="feature-icon digest-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 3h-1V1h-2v2H9V1H7v2H6a3 3 0 0 0-3 3v13a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3Zm1 16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9h14v10ZM5 7V6a1 1 0 0 1 1-1h1v2h2V5h6v2h2V5h1a1 1 0 0 1 1 1v1H5Z"/><path d="M7 11h3v3H7zm5 0h3v3h-3zm5 0h2v3h-2zM7 16h3v3H7zm5 0h3v3h-3z"/></svg></span><h3 data-ru="Итоги группы">Group digests</h3><p data-ru="Смотрите сводку за день, неделю, месяц или год и делитесь карточками.">Review daily, weekly, monthly or yearly summaries and share cards.</p></article>
         <article class="feature"><span class="feature-icon invite-icon" aria-hidden="true"><span class="material-icon">&#xf016a;</span><svg viewBox="0 0 24 24"><path d="M3.9 12a5 5 0 0 1 5-5h4V5h-4a7 7 0 0 0 0 14h4v-2h-4a5 5 0 0 1-5-5zm5 1h6v-2h-6v2zm6.2-8h-4v2h4a5 5 0 0 1 0 10h-4v2h4a7 7 0 0 0 0-14z"/></svg></span><h3 data-ru="Вход по приглашению">Invite-only access</h3><p data-ru="Приглашайте участников ссылкой или QR-кодом.">Invite members with a link or QR code.</p></article>
       </div>
     </section>
@@ -109,6 +131,7 @@
       <p class="section-label" data-ru="Цены">Pricing</p>
       <h2 data-ru="Бесплатно и Plus">Free and Plus</h2>
       <p class="section-lead" data-ru="Приложение бесплатно. Plus увеличивает лимиты группы и добавляет функции.">The app is free. Plus raises group limits and adds features.</p>
+      <p class="currency-note" data-ru="Цены на сайте указаны в российских рублях (RUB).">Website prices are shown in Russian rubles (RUB).</p>
       <div class="pricing">
         <div class="price"><div class="price-label" data-ru="Бесплатно">Free</div><b data-ru="0 ₽">0 ₽</b><p data-ru="Одна группа, до 10 участников.">One group, up to 10 members.</p></div>
         <div class="price featured plus-plan"><span class="tag" data-ru="Без автопродления">No auto-renewal</span><div class="price-label plus-label"><img src="assets/subscription.svg" alt="" aria-hidden="true"/><span data-ru="REPотека Plus">REPuchat Plus</span></div><b data-ru="99 ₽ <span>/ месяц</span>">99 ₽ <span>/ month</span></b><p data-ru="999 ₽ в год — выгоднее на 16 %. Оплата на 30 или 365 дней.">999 ₽ a year — save 16%. Pay for 30 or 365 days.</p>
@@ -120,10 +143,7 @@
           </ul>
         </div>
       </div>
-      <div class="boss-card"><div><div class="boss-title"><span class="groupocracy-mark" aria-hidden="true"></span><h3 data-ru="Группократия">Groupocracy</h3></div><p data-ru="Функции для команд до 100 человек: задания с наградами, звания, отдельный бюджет REPочков и управление спорами.">Tools for teams of up to 100: reward tasks, ranks, a separate REPoints budget and dispute controls.</p></div><div class="boss-price"><b data-ru="149 ₽ / 30 дней">149 ₽ / 30 days</b><small data-ru="Одна группа · покупает хост в приложении">One group · host purchases in the app</small></div></div>
-    </section>
-    <section class="section" id="download">
-      <div class="download"><div><h2 data-ru="Скачать REPотеку">Get REPuchat</h2><p data-ru="Android-приложение и веб-версия для iPhone и компьютера.">Android app and web version for iPhone and desktop.</p></div><div class="actions"><a class="button primary" href="get/" data-ru="Android">Android</a><a class="button" href="app/" data-ru="Веб-версия">Web version</a></div></div>
+      <div class="boss-card"><div><div class="boss-title"><span class="groupocracy-mark" aria-hidden="true"></span><h3 data-ru="Группократия">Groupocracy</h3></div><p data-ru="Это способ распределять ответственность и отмечать вклад в команде: назначайте задания с наградой REPочками, звания и общий бюджет REPочков, а также настраивайте правила споров.">A way for teams to share responsibility and recognize contributions: assign tasks with REPoints rewards, set ranks and a shared REPoints budget, and manage dispute rules.</p></div><div class="boss-price"><b data-ru="149 ₽ / 30 дней">149 ₽ / 30 days</b><small data-ru="Одна группа · покупает хост в приложении">One group · host purchases in the app</small></div></div>
     </section>
   </main>
   <footer class="wrap"><span>REPuchat · <a href="mailto:repuchatapp@gmail.com">repuchatapp@gmail.com</a><br><span data-ru="Поддержка">Support</span>: <a href="tel:+79503547433">+7 950 354-74-33</a></span><nav class="footlinks"><a href="https://t.me/repuchat" target="_blank" rel="noopener noreferrer" data-ru="Telegram · канал приложения">Telegram · app channel</a><a href="oferta/" data-ru="Оферта">Terms</a><a href="privacy/" data-ru="Конфиденциальность">Privacy</a></nav></footer>
@@ -154,6 +174,115 @@
       document.documentElement.lang = 'ru';
       for (const el of document.querySelectorAll('[data-ru]')) el.innerHTML = el.dataset.ru;
       for (const el of document.querySelectorAll('img[data-ru-src]')) { el.src = el.dataset.ruSrc; el.alt = 'REPотека'; }
+    }
+    const reportPeople = [
+      { initial: ['M', 'М'], avatar: 'person-0' },
+      { initial: ['A', 'А'], avatar: 'person-1' },
+      { initial: ['L', 'Л'], avatar: 'person-2' },
+      { initial: ['S', 'С'], avatar: 'person-3' },
+      { initial: ['N', 'Н'], avatar: 'person-4' },
+      { initial: ['D', 'Д'], avatar: 'person-5' },
+    ];
+    const reportExamples = [
+      {
+        amount: -2,
+        author: 0,
+        target: 1,
+        participants: [['Max', 'Alex'], ['Максим', 'Алексей']],
+        meta: ['1 hour ago', '1 ч назад'],
+        reason: ['Was 40 minutes late', 'Опоздал на 40 минут'],
+        place: ['Team meetup', 'Встреча команды'],
+      },
+      {
+        amount: 3,
+        author: 1,
+        target: 0,
+        participants: [['Alex', 'Max'], ['Алексей', 'Максим']],
+        meta: ['Yesterday', 'Вчера'],
+        reason: ['Helped me move', 'Помог с переездом'],
+        place: ['My place', 'У меня дома'],
+      },
+      {
+        amount: -7,
+        author: 2,
+        target: 3,
+        participants: [['Lena', 'Sam'], ['Лена', 'Сэм']],
+        meta: ['3 hours ago', '3 ч назад'],
+        reason: ['You forgot the groceries', 'Забыл купить продукты'],
+        place: ['On the way home', 'По дороге домой'],
+      },
+      {
+        amount: 5,
+        author: 3,
+        target: 4,
+        participants: [['Sam', 'Nika'], ['Сэм', 'Ника']],
+        meta: ['2 days ago', '2 дня назад'],
+        reason: ['Organized the whole trip', 'Организовал всю поездку'],
+        place: ['Weekend trip', 'Поездка на выходных'],
+      },
+      {
+        amount: 2,
+        author: 4,
+        target: 5,
+        participants: [['Nika', 'Dan'], ['Ника', 'Дан']],
+        meta: ['Today', 'Сегодня'],
+        reason: ['Shared her notes', 'Поделилась конспектом'],
+        place: ['Study group', 'Учебная группа'],
+      },
+      {
+        amount: -3,
+        author: 5,
+        target: 2,
+        participants: [['Dan', 'Lena'], ['Дан', 'Лена']],
+        meta: ['5 hours ago', '5 ч назад'],
+        reason: ['Left the kitchen a mess', 'Оставил беспорядок на кухне'],
+        place: ['At home', 'Дома'],
+      },
+    ];
+    const reportCard = document.querySelector('.report-card');
+    let reportIndex = 0;
+    function showReport(index) {
+      const report = reportExamples[index];
+      const languageIndex = isRussian ? 1 : 0;
+      const score = document.querySelector('[data-report-score]');
+      const author = document.querySelector('[data-report-author]');
+      const target = document.querySelector('[data-report-target]');
+      const authorName = document.querySelector('[data-report-author-name]');
+      const targetName = document.querySelector('[data-report-target-name]');
+      const authorPerson = reportPeople[report.author];
+      const targetPerson = reportPeople[report.target];
+      author.textContent = authorPerson.initial[languageIndex];
+      target.textContent = targetPerson.initial[languageIndex];
+      author.className = `report-avatar ${authorPerson.avatar}`;
+      target.className = `report-avatar ${targetPerson.avatar}`;
+      authorName.textContent = report.participants[languageIndex][0];
+      targetName.textContent = report.participants[languageIndex][1];
+      document.querySelector('[data-report-reason]').textContent = report.reason[languageIndex];
+      document.querySelector('[data-report-meta]').textContent = report.meta[languageIndex];
+      document.querySelector('[data-report-place]').textContent = report.place[languageIndex];
+      score.textContent = `${report.amount > 0 ? '+' : '−'}${Math.abs(report.amount)}`;
+      score.classList.toggle('plus', report.amount > 0);
+      score.classList.toggle('minus', report.amount < 0);
+      score.setAttribute('aria-label', isRussian
+        ? `${report.amount > 0 ? 'Плюс' : 'Минус'} ${Math.abs(report.amount)} REP`
+        : `${report.amount > 0 ? 'Plus' : 'Minus'} ${Math.abs(report.amount)} REPoints`);
+    }
+    showReport(reportIndex);
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reportCard && reportExamples.length > 1) {
+      window.setInterval(() => {
+        if (prefersReducedMotion) {
+          reportIndex = (reportIndex + 1) % reportExamples.length;
+          showReport(reportIndex);
+          return;
+        }
+        reportCard.classList.add('is-changing');
+        window.setTimeout(() => {
+          reportIndex = (reportIndex + 1) % reportExamples.length;
+          showReport(reportIndex);
+          reportCard.classList.remove('is-changing');
+        }, 200);
+      }, 4000);
     }
   </script>
 </body>
